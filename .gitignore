@@ -1,1 +1,5 @@
 docs/_site
+
+draco.vcxproj
+draco.vcxproj.filters
+draco.vcxproj.user
