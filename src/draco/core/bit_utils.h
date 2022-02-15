@@ -95,11 +95,19 @@ typename std::make_unsigned<IntTypeT>::type ConvertSignedIntToSymbol(
   if (val >= 0) {
     return static_cast<UnsignedType>(val) << 1;
   }
-  val = -(val + 1);  // Map -1 to 0, -2 to -1, etc..
-  UnsignedType ret = static_cast<UnsignedType>(val);
-  ret <<= 1;
-  ret |= 1;
-  return ret;
+
+  // Prevent warning about applying unary minus to unsigned type
+  if constexpr (std::is_signed_v<IntTypeT>)
+  {
+    val = -(val + 1);  // Map -1 to 0, -2 to -1, etc..
+    UnsignedType ret = static_cast<UnsignedType>(val);
+    ret <<= 1;
+    ret |= 1;
+    return ret;
+  }
+
+  // Prevent warning about control path not returning a value
+  return static_cast<UnsignedType>(val) << 1; 
 }
 
 // Converts a single unsigned integer symbol encoded with an entropy encoder
