@@ -16,8 +16,7 @@ class DracoConan(ConanFile):
         relative = "3rdparty/draco/"
 
         # headers
-        self.copy("*.h*", src=base + "include", dst=relative + "include", excludes="*.in")
-        self.copy("*.inl", src=base + "include", dst=relative + "include")
+        self.copy("*.h", src=base + "src", dst=relative + "src")
 
         # libraries
         output = "output/" + str(self.settings.platform_architecture_target) + "/staticlib"
