@@ -6,9 +6,6 @@ configuration { "*" }
 
 uuid "0A414681-67D1-46F8-9405-94E446B301D3"
 
-defines {
-}
-
 includedirs {
   "src",
   _3RDPARTY_DIR,
