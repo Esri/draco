@@ -3,7 +3,7 @@ from conans import ConanFile
 
 class DracoConan(ConanFile):
     name = "draco"
-    version = "1.5"
+    version = "1.5.0"
     url = "https://github.com/Esri/draco/tree/runtimecore"
     license = "https://github.com/Esri/draco/blob/runtimecore/LICENSE"
     description = "Draco is a library for compressing and decompressing 3D geometric meshes and point clouds. It is intended to improve the storage and transmission of 3D graphics."
